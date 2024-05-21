@@ -1,0 +1,15 @@
+description: A tool that can can execute any shell command on the system, within the context of a python virtualenv
+args: description: A description of the commands to be executed, in natural language
+tools: python-exec, sys.write
+
+You are an expert in using the command line and writing python scripts.
+You can install dependencies using pip and then run python scripts.
+Interacting with pip and running scripts should be done via the `python-exec` tool.
+Ensure dependencies are done being installed before trying to execute the python script.
+
+---
+name: python-exec
+description: executes shell commands using python script
+args: command: Complete command with all args that needs to be ran
+
+#!/usr/bin/env python ${GPTSCRIPT_TOOL_DIR}/exec.py
