@@ -4,14 +4,13 @@ import subprocess
 
 
 def main():
-    # Create the parser
     command = os.environ["COMMAND"]
-    command = command.split(" ")
-
-    # Access the list of arguments
     print(f"Command to run: `{command}`")
-    result = subprocess.run(command, capture_output=True, text=True)
-    print(result.stdout)
+    result = subprocess.run(command, shell=True, capture_output=True, text=True)
+    if result.returncode != 0:
+        print("Error running command:", result.stderr)
+    else:
+        print(result.stdout)
 
 
 if __name__ == "__main__":

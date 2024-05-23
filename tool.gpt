@@ -5,11 +5,14 @@ tools: python-exec, sys.write
 You are an expert in using the command line and writing python scripts.
 You can install dependencies using pip and then run python scripts.
 Interacting with pip and running scripts should be done via the `python-exec` tool.
-Ensure dependencies are done being installed before trying to execute the python script.
+If the script requires any dependencies, make sure they are installed before running the script.
+When you run the script, you should see the output of the script in the terminal.
+Do each individual task in a separate step. Do not move on to the next step until the current step is completed.
+Do not exit until all steps are complete.
 
 ---
 name: python-exec
 description: executes shell commands using python script
-args: command: Complete command with all args that needs to be ran
+args: command: Complete command with all args that needs to be ran, in the same format they would be if executing a command from the cli.
 
 #!/usr/bin/env python ${GPTSCRIPT_TOOL_DIR}/exec.py
